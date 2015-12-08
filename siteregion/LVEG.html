@@ -21,8 +21,8 @@
 
 <script>
 var margin = {top: 20, right: 20, bottom: 70, left: 40},
-    width = 5000 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 3300 - margin.left - margin.right,
+    height = 800 - margin.top - margin.bottom;
 // Parse the date / time
 //var	parseDate = d3.time.format("%Y-%m").parse;
 var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
@@ -42,7 +42,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
-d3.csv("resultparsedLUG.csv", function(error, data) {
+d3.csv("LVEG.csv", function(error, data) {
     data.forEach(function(d) {
         d.date = d.date;
         d.value = +d.value;
@@ -67,7 +67,7 @@ d3.csv("resultparsedLUG.csv", function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Value ($)");
+			.text("Pourcentage (%)");
   svg.selectAll("bar")
       .data(data)
     .enter().append("rect")
